@@ -25,3 +25,18 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## How to create a component
+
+navigate to the `src/app/components` component directory and use the command
+`ng generate component SignupModal` - this will create a component SignupModal boilerplate for you.
+
+## How to create a page
+
+navigate to the `src/app/pages` pages directory and use the command
+`ng generate component AboutPage` - this will create an AboutPage Page
+
+## How to create a service
+
+navigate to the `src/app/services` service directory, create a service folder for the service you want to create and use the command
+`ng generate service category-service` - this will create a category-service service
