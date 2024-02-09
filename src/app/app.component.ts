@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment';
+
+
 
 @Component({
   selector: 'app-root',
@@ -11,4 +14,12 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'event-app-frontend';
+  myVariable = 'Hello, World!'; // New variable
+
+   apiUrl = environment.apiUrl;
+
 }
+
+
+
+

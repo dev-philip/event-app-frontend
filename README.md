@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
 
+# Github Repository
+
+https://github.com/dev-philip/event-app-frontend
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -40,3 +44,32 @@ navigate to the `src/app/pages` pages directory and use the command
 
 navigate to the `src/app/services` service directory, create a service folder for the service you want to create and use the command
 `ng generate service category-service` - this will create a category-service service
+
+## How to PUSH CHAGES TO GIT Repository
+
+1. git checkout -b new-branch
+2. git add .
+3. git commit -m "Your commit message"
+4. git checkout dev
+5. git merge new-branch
+6. git push origin dev
+
+## How to Initialize fresh branch
+
+1. git init
+2. git checkout -b dev
+3. git add .
+4. git commit -am "First Commit"
+5. git remote add origin https://git-codecommit.us-west-2.amazonaws.com/v1/repos/sls-notes-backend-repo
+6. git remote -v
+7. git status
+8. git push --set-upstream origin dev
+
+9. git checkout -b qa
+10. git push --set-upstream origin qa
+
+11. git checkout -b prod
+12. git push --set-upstream origin prod
+
+Course project for COP4710 Frontend Application
+Course project for COP4710 Backend Application
