@@ -73,3 +73,7 @@ navigate to the `src/app/services` service directory, create a service folder fo
 
 Course project for COP4710 Frontend Application
 Course project for COP4710 Backend Application
+
+## Prod URL
+
+http://prod.eventapp.com.s3-website-us-west-2.amazonaws.com
