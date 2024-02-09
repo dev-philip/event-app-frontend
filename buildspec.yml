@@ -6,7 +6,7 @@ phases:
       - echo Deployment started on `date`
       - echo Syncing S3 Content
       # REPLACE yourwebsite.com WITH THE NAME OF YOUR S3 BUCKET THAT HOSTS YOUR APP'S STATIC WEBSITE
-      - aws s3 sync ./public/browser s3://dev.eventapp.com
+      - aws s3 sync ./public/browser s3://prod.eventapp.com
   build:
     commands:
       - echo I got to the build stage
