@@ -9,7 +9,6 @@ phases:
   build:
     commands:
       - echo I got to the build stage
-      - packaging static files to public folder
       - npm run build
       - echo Syncing S3 Content
       - aws s3 sync ./public/browser s3://dev.eventapp.com
