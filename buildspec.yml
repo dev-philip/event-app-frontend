@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - echo I got to the build stage
-      - npm install -g @angular/cli # Install Angular CLI globally
+      #- npm install -g @angular/cli # Install Angular CLI globally
       - npm install # Install project dependencies
       - npm run build
       - echo Deleting old content in S3 bucket
