@@ -77,3 +77,10 @@ Course project for COP4710 Backend Application
 ## Dev URL
 
 http://dev.eventapp.com.s3-website-us-west-2.amazonaws.com/
+
+[courseeventappfrontend.shop](https://courseeventappfrontend.shop/)
+https://courseeventappfrontend.shop
+
+Tailwind Template : https://tailblocks.cc/
+ng generate component EventListPage
+ng generate component Footer
