@@ -1,0 +1,21 @@
+#puzzle-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    border: 1px solid black;
+}
+
+.piece {
+    position: absolute;
+    background-image: url('new_york_scene.jpg');
+    width: 200px;
+    height: 133px;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+button {
+    margin: 0 10px;
+}
