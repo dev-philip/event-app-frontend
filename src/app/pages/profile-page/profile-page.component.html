@@ -1,0 +1,9 @@
+<p>profile-page works!</p>
+
+
+<div *ngIf="user$ | async as user">
+    <h2>Welcome, {{ user.firstName }} {{ user.lastName }}!</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>User Level: {{ user.user_level }}</p>
+    <p>created at: {{ user.created_at }}</p>
+  </div>

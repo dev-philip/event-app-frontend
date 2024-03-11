@@ -1,5 +1,7 @@
 # EventAppFrontend
 
+Course Project for COP4710
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
 
 # Github Repository
@@ -84,3 +86,7 @@ https://courseeventappfrontend.shop
 Tailwind Template : https://tailblocks.cc/
 ng generate component EventListPage
 ng generate component Footer
+
+ng generate component ProfilePage
+
+ng generate service signup

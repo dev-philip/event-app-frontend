@@ -1,54 +1,63 @@
-<div id="app">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FFD700;">
-      <img src="assets/images/img.png" style="margin-right: 5px;" class="img-fluid" height="40" width="40">
-      <a class="navbar-brand" href="./">KnightsUnite</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
+<div id="myModal" class="modal animate__animated animate__fadeIn">
+  <!-- hello -->
 
-    <!-- Register Box -->
-    <div class="container-fluid col-md-6 col-xl-4" id="form-box" style="margin-top: 30px;">
-      <div class="card shadow">
-        <h4 class="card-header">
-          Register Here
-        </h4>
-        <div class="card-body">
-          <form id="register-form" novalidate>
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" name="username" id="username" class="form-control" maxlength="50" required>
-              <div class="invalid-feedback">
-                Please enter your desired username.
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" class="form-control" minlength="4" maxlength="50"
-                required>
-              <div class="invalid-feedback">
-                Please enter a password 10-20 characters long.
-              </div>
-            </div>
-            <div class="form-group form-row">
-              <div class="col">
-                <button id="register-button" class="btn btn-block btn-primary btn-lg" type="button">
-                  Register
-                  <i id="register-arrow" class="fa fa-arrow-right" aria-hidden="true"></i>
-                  <span id="register-spinner" class="spinner-border spinner-large-button d-none" role="status"
-                    aria-hidden="true"></span>
-                </button>
-              </div>
-            </div>
-          </form>
-          <div id="register-response" class="alert alert-primary d-none" role="alert"></div>
-          <p class="text-center">
-            Already have an account?
-            <a routerLink="/login">Login</a>
-          </p>
-        </div>
-      </div>
+  <div class="main auth-signup">
+    <div class="modal-menubar">
+        <span class="close" title="close" (click)="closeModal()">&times;</span>
     </div>
+    <p class="sign">Sign Up</p>
+    <form class="form1" [formGroup]="mySignupForm" (ngSubmit)="onSubmit()">
+        <div class="input-container">
+            <span class="input-icon">
+                <span class="input-error" *ngIf="mySignupForm.get('firstName')!.hasError('required')">Firstname is required</span>
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </span>
+            <input class="un" type="text" id="firstName" formControlName="firstName" placeholder="First Name" />
+        </div>
+        <div class="input-container">
+            <span class="input-icon">
+              <!-- input-success -->
+              <span class="input-error" *ngIf="mySignupForm.get('lastName')!.hasError('required')">Lastname is required</span>
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </span>
+            <input class="un" type="text" formControlName="lastName"  placeholder="Last Name" />
+        </div>
+        <div class="input-container">
+            <span class="input-icon">
+              <span class="input-error" *ngIf="mySignupForm.get('email')!.hasError('required')">Email is required</span>
+              <span class="input-error" *ngIf="mySignupForm.get('email')!.hasError('email')">Invalid email</span>
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </span>
+            <input class="un" type="email" formControlName="email"  placeholder="Email" />
+        </div>
+        <div class="input-container">
+            <span class="input-icon">
+              <span class="input-error" *ngIf="mySignupForm.get('password')!.hasError('required')">Password is required</span>
+                <i class="fa fa-lock" aria-hidden="true"></i>
+               <!-- <i class="fa fa-unlock" aria-hidden="true"></i> -->
+            </span>
+            <input class="pass" type="password" formControlName="password"  placeholder="Password" [type]="isPasswordVisible ? 'text' : 'password'" />
+            <span class="eye-password" (click)="togglePasswordVisibility()">
+              
+              <ng-container *ngIf="isPasswordVisible; else showEyeSlash">
+                  <i class="fa fa-eye" aria-hidden="true" title="Hide Password"></i>
+                </ng-container>
+                <ng-template #showEyeSlash>
+                  <i class="fa fa-eye-slash" aria-hidden="true" title="Show Password"></i>
+                </ng-template>
+            </span>
+        </div>
+        <!-- <button type="submit" [disabled]="mySignupForm.invalid" class="submit">Sign Up</button> -->
+        <button class="submit" type="submit" [disabled]="loading">
+          <ng-container *ngIf="!loading; else loadingTemplate">Sign Up</ng-container>
+          <ng-template #loadingTemplate>
+            <i class="fa fa-circle-o-notch fa-spin" style="font-size: 24px;"></i>
+          </ng-template>
+        </button>
+    </form>
+    <!-- <p class="signup" (click)="openSignInModal()"><a href="javascript:void(0);">Log In?</a></p>  -->
+    <p class="signup" routerLink="/login"><a href="javascript:void(0);">Log In?</a></p> 
+    <p class="forgot"><a href="#" routerLink="/login">Forgot Password?</a></p>      
   </div>
+
+</div>

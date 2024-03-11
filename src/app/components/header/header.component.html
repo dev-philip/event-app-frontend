@@ -5,20 +5,49 @@
         <span class="ml-3 text-xl">KnightsUnite</span>
       </a>
       <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-        <a class="mr-5 hover:text-gray-900">First Link</a>
-        <a class="mr-5 hover:text-gray-900">Second Link</a>
-        <a class="mr-5 hover:text-gray-900">Third Link</a>
-        <a class="mr-5 hover:text-gray-900">Fourth Link</a>
+        <a routerLink="/profile" class="mr-5 hover:text-gray-900">Profile</a>
+        <a  routerLink="/rso" class="mr-5 hover:text-gray-900">Create RSOs</a>
+        <a  routerLink="/university" class="mr-5 hover:text-gray-900">Create University</a>
+        <a  routerLink="/" class="mr-5 hover:text-gray-900">Fourth Link</a>
       </nav>
-      <button routerLink="/login" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 mr-2 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log In
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg>
-      </button>
-      <button routerLink="/signup" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Sign up
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg>
-      </button>
+
+
+      <div class="flex items-center gap-4">
+        <!-- Display login and signup buttons if user is not logged in -->
+        <ng-container *ngIf="!isLoggedIn">
+          <button routerLink="/login" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 mr-2 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log In
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          <button routerLink="/signup" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Sign up
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </ng-container>
+      
+        <!-- Display user profile section if user is logged in -->
+        <ng-container *ngIf="isLoggedIn">
+          <!-- User profile section -->
+          <div *ngIf="user$ | async as user" class="flex items-center gap-4">
+            <!-- User profile information -->
+            <!-- Replace the following content with your user profile information -->
+            <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+              <span class="font-medium text-gray-600 dark:text-gray-300 uppercase">{{user.firstName[0]}}{{user.lastName[0]}}</span>
+            </div>
+            <div class="font-medium dark:text-white">
+              <div class="capitalize">{{ user.firstName }} {{ user.lastName }}</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Joined in {{joinDate}}</div>
+            </div>
+      
+            <!-- Logout button -->
+            <div class="cursor-pointer" (click)="logOutAUser()">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
     </div>
 </header>
